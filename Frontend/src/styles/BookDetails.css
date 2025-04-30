@@ -1,0 +1,140 @@
+.book-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.book-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.book-image {
+  flex: 0 0 300px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h1 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.author {
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.genre {
+  color: #3498db;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.isbn {
+  color: #7f8c8d;
+  margin: 0 0 1rem 0;
+}
+
+.book-status {
+  margin: 1rem 0;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-badge.available {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.status-badge.unavailable {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.borrow-btn, .return-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.borrow-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.borrow-btn:hover {
+  background-color: #2980b9;
+}
+
+.return-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.return-btn:hover {
+  background-color: #c0392b;
+}
+
+.book-description, .book-notes {
+  margin-bottom: 2rem;
+}
+
+.book-description h2, .book-notes h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.book-description p, .book-notes p {
+  color: #34495e;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.loading, .error, .not-found {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.not-found {
+  color: #7f8c8d;
+} 

@@ -15,10 +15,15 @@ const BookDetails = () => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/api/books/${id}`);
-        setBook(response.data);
-        setLoading(false);
+        if (response.data) {
+          setBook(response.data);
+          setLoading(false);
+        } else {
+          setError('Book not found');
+          setLoading(false);
+        }
       } catch (err) {
-        setError('Failed to fetch book details');
+        setError(err.response?.data?.message || 'Failed to fetch book details');
         setLoading(false);
       }
     };
@@ -42,7 +47,7 @@ const BookDetails = () => {
       setIsBorrowed(true);
       setBook(prev => ({ ...prev, availability: false }));
     } catch (err) {
-      setError('Failed to borrow book');
+      setError(err.response?.data?.message || 'Failed to borrow book');
     }
   };
 
@@ -62,7 +67,7 @@ const BookDetails = () => {
       setIsBorrowed(false);
       setBook(prev => ({ ...prev, availability: true }));
     } catch (err) {
-      setError('Failed to return book');
+      setError(err.response?.data?.message || 'Failed to return book');
     }
   };
 

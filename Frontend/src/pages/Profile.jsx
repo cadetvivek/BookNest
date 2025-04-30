@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import UserProfile from '../components/UserProfile';
 import '../styles/Profile.css';
 
 const Profile = () => {
@@ -32,6 +33,20 @@ const Profile = () => {
     fetchProfile();
   }, [navigate]);
 
+  const handleUpdateProfile = async (formData) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.put(
+        'http://localhost:3000/api/users/profile',
+        formData,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setUser(response.data);
+    } catch (err) {
+      setError('Failed to update profile');
+    }
+  };
+
   const handleReturnBook = async (bookId) => {
     try {
       const token = localStorage.getItem('token');
@@ -56,15 +71,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <div className="profile-header">
-        <h1>My Profile</h1>
-        <div className="user-info">
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-          <p className="role">Role: {user.role}</p>
-        </div>
-      </div>
-
+      <UserProfile user={user} onUpdate={handleUpdateProfile} />
       <div className="borrowed-books">
         <h2>Borrowed Books</h2>
         {user.borrowHistory?.length > 0 ? (

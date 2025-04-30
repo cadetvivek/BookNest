@@ -1,10 +1,41 @@
-.book-form {
-  max-width: 600px;
-  margin: 2rem auto;
+/* BookForm.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+.book-form {
+  background-color: #fff;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s ease;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-form:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .form-group {
@@ -13,36 +44,72 @@
 
 .form-group label {
   display: block;
+  font-weight: 600;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  color: #333;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group textarea {
-  min-height: 100px;
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.1);
+}
+
+textarea {
   resize: vertical;
+  min-height: 100px;
 }
 
 .submit-button {
   width: 100%;
-  padding: 0.75rem;
-  background-color: #007bff;
-  color: white;
+  padding: 0.9rem;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 10px;
+  background: linear-gradient(to right, #6a5acd, #836fff);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background 0.4s ease, transform 0.2s ease;
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
-} 
+  background: linear-gradient(to right, #836fff, #6a5acd);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .book-form {
+    padding: 1.5rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-form {
+    padding: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+  }
+
+  .submit-button {
+    padding: 0.8rem;
+  }
+}

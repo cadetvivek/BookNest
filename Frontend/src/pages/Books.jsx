@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import BookCard from '../components/BookCard';
+import BookList from '../components/BookList';
 import SearchBar from '../components/SearchBar';
 import '../styles/Books.css';
 
@@ -33,18 +33,18 @@ function Books() {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  const handleBookClick = (book) => {
+    window.location.href = `/books/${book._id}`;
+  };
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="books-container">
-      <h1>All Books</h1>
+      <h1 className="books-title">All Books</h1>
       <SearchBar onSearch={handleSearch} />
-      <div className="books-grid">
-        {books.map(book => (
-          <BookCard key={book._id} book={book} />
-        ))}
-      </div>
+      <BookList books={books} onBookClick={handleBookClick} />
     </div>
   );
 }

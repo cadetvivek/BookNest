@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -76,48 +78,56 @@ const BookDetails = () => {
   if (!book) return <div className="not-found">Book not found</div>;
 
   return (
-    <div className="book-details">
-      <div className="book-header">
-        <div className="book-image">
-          {book.image ? (
-            <img src={book.image} alt={book.title} />
-          ) : (
-            <div className="book-placeholder">
-              <span>No Image</span>
-            </div>
-          )}
-        </div>
-        <div className="book-info">
-          <h1>{book.title}</h1>
-          <p className="author">By {book.author}</p>
-          <p className="genre">{book.genre}</p>
-          <p className="isbn">ISBN: {book.isbn}</p>
-          <div className="book-status">
-            <span className={`status-badge ${book.availability ? 'available' : 'unavailable'}`}>
-              {book.availability ? 'Available' : 'Unavailable'}
-            </span>
+    <div className="book-details-container">
+      <div className="book-details-card">
+        <div className="book-header">
+          <div className="book-image">
+            {book.image ? (
+              <img src={book.image} alt={book.title} />
+            ) : (
+              <div className="book-placeholder">
+                <span>No Image</span>
+              </div>
+            )}
           </div>
-          {book.availability ? (
-            <button onClick={handleBorrow} className="borrow-btn">
-              Borrow Book
-            </button>
-          ) : (
-            <button onClick={handleReturn} className="return-btn">
-              Return Book
-            </button>
-          )}
+          <div className="book-info">
+            <h1 className="book-title" title={book.title}>{book.title}</h1>
+            <p className="author">By {book.author}</p>
+            <p className="genre">{book.genre}</p>
+            <p className="isbn">ISBN: {book.isbn}</p>
+            <div className="book-status">
+              <span className={`status-badge ${book.availability ? 'available' : 'unavailable'}`}>
+                {book.availability ? 'Available' : 'Unavailable'}
+              </span>
+            </div>
+            {book.availability ? (
+              <button onClick={handleBorrow} className="action-btn borrow-btn">
+                Borrow Book
+              </button>
+            ) : (
+              <button onClick={handleReturn} className="action-btn return-btn">
+                Return Book
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-      <div className="book-description">
-        <h2>Description</h2>
-        <p>{book.description}</p>
-      </div>
-      <div className="book-notes">
-        <h2>Notes</h2>
-        <p>{book.notes || 'No notes available'}</p>
+        <div className="book-content">
+          <div className="book-section">
+            <h2>Description</h2>
+            <div className="scrollable-content">
+              <p>{book.description}</p>
+            </div>
+          </div>
+          <div className="book-section">
+            <h2>Notes</h2>
+            <div className="scrollable-content">
+              <p>{book.notes || 'No notes available'}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default BookDetails; 
+export default BookDetails;

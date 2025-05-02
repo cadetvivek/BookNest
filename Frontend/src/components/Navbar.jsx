@@ -1,5 +1,6 @@
 
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -73,6 +74,9 @@ const Navbar = () => {
         
         <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
           <Link to="/books" onClick={closeMenu}>Books</Link>
+          <Link to="/features" onClick={closeMenu}>Features</Link>
+          <Link to="/pricing" onClick={closeMenu}>Pricing</Link>
+          <Link to="/contact" onClick={closeMenu}>Contact</Link>
           {isAuthenticated ? (
             <>
               <Link to="/profile" onClick={closeMenu}>Profile</Link>

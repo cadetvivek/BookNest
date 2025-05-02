@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const bookRoutes = require('./routes/bookRoutes');
 const userRoutes = require('./routes/userRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 const { auth, isAdmin } = require('./middleware/auth');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 // Routes
 app.use('/api/books', bookRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api', paymentRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

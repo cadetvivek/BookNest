@@ -1,0 +1,180 @@
+/* Pricing-specific Variables */
+:root {
+  --pricing-primary: #2a6496;
+  --pricing-primary-light: #4d85b9;
+  --pricing-accent: #9b59b6;
+  --pricing-accent-light: #b06ab3;
+  --pricing-text-light: #666;
+  --pricing-background-white: #ffffff;
+  --pricing-background-light: #f5f5f5;
+  --pricing-success: #27ae60;
+  --pricing-space-xxxl: 6rem;
+  --pricing-space-xxl: 4rem;
+  --pricing-space-xl: 2rem;
+  --pricing-space-lg: 1.5rem;
+  --pricing-space-md: 1rem;
+  --pricing-space-sm: 0.5rem;
+}
+
+.pricing {
+  padding: var(--pricing-space-xxxl) 0;
+  background-color: var(--pricing-background-light);
+}
+
+.pricing-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--pricing-space-xxl);
+}
+
+.pricing-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--pricing-space-md);
+  color: var(--pricing-primary);
+}
+
+.pricing-description {
+  font-size: 1.1rem;
+  color: var(--pricing-text-light);
+  line-height: 1.6;
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pricing-space-md);
+  margin-bottom: var(--pricing-space-xxl);
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--pricing-text-light);
+  cursor: pointer;
+  padding: var(--pricing-space-sm) var(--pricing-space-md);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.toggle-button.active {
+  background-color: var(--pricing-primary);
+  color: white;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--pricing-space-xl);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.pricing-card {
+  background-color: var(--pricing-background-white);
+  border-radius: 15px;
+  padding: var(--pricing-space-xl);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.popular {
+  border: 2px solid var(--pricing-accent);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background-color: var(--pricing-accent);
+  color: white;
+  padding: 8px 40px;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  color: var(--pricing-primary);
+  margin-bottom: var(--pricing-space-md);
+}
+
+.plan-price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--pricing-primary);
+  margin-bottom: var(--pricing-space-md);
+}
+
+.plan-price span {
+  font-size: 1rem;
+  color: var(--pricing-text-light);
+}
+
+.plan-features {
+  list-style: none;
+  margin: var(--pricing-space-xl) 0;
+  padding: 0;
+}
+
+.plan-features li {
+  margin-bottom: var(--pricing-space-md);
+  color: var(--pricing-text-light);
+}
+
+.plan-button {
+  display: inline-block;
+  padding: var(--pricing-space-md) var(--pricing-space-xxl);
+  background-color: var(--pricing-primary);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.plan-button:hover {
+  background-color: var(--pricing-primary-light);
+  transform: translateY(-2px);
+}
+
+.pricing-card.popular .plan-button {
+  background-color: var(--pricing-accent);
+}
+
+.pricing-card.popular .plan-button:hover {
+  background-color: var(--pricing-accent-light);
+}
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--pricing-space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-title {
+    font-size: 2rem;
+  }
+
+  .pricing-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

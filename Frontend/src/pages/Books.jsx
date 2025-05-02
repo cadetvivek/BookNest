@@ -34,7 +34,7 @@ function Books() {
   };
 
   const handleBookClick = (book) => {
-    window.location.href = `/books/${book._id}`;
+    navigate(`/books/${book._id}`);
   };
 
   if (loading) return <div className="loading">Loading...</div>;

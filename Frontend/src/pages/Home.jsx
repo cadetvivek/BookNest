@@ -94,11 +94,20 @@ const Home = () => {
     <div className="home-container">
       <section className="hero">
         <div className="hero-content">
-          <h1>Welcome to BookNest</h1>
-          <p>Discover, borrow, and enjoy your favorite books</p>
-          <Link to="/books" className="cta-button">
-            Browse Books
-          </Link>
+          <div className="hero-text">
+            <h1 className="hero-title">Welcome to BookNest</h1>
+            <p className="hero-subtitle">Discover, borrow, and enjoy your favorite books</p>
+            <Link to="/books" className="btn btn-primary">
+              Browse Books
+            </Link>
+          </div>
+          <div className="hero-image-container">
+            <img 
+              src="https://thumbs.dreamstime.com/b/library-books-background-book-closet-filled-41199253.jpg" 
+              alt="Library" 
+              className="hero-image"
+            />
+          </div>
         </div>
       </section>
 

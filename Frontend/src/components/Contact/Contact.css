@@ -1,0 +1,213 @@
+/* Contact-specific Variables */
+:root {
+  --contact-primary: #2a6496;
+  --contact-primary-light: #4d85b9;
+  --contact-text-light: #666;
+  --contact-background-white: #ffffff;
+  --contact-background-light: #f5f5f5;
+  --contact-space-xxxl: 6rem;
+  --contact-space-xxl: 4rem;
+  --contact-space-xl: 2rem;
+  --contact-space-lg: 1.5rem;
+  --contact-space-md: 1rem;
+  --contact-space-sm: 0.5rem;
+  --success-color: #27ae60;
+  --error-color: #e74c3c;
+}
+
+.contact {
+  padding: var(--contact-space-xxxl) 0;
+  background-color: var(--contact-background-white);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--contact-space-xxl);
+  align-items: start;
+}
+
+.contact-info {
+  padding-right: var(--contact-space-xxl);
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--contact-space-lg);
+  color: var(--contact-primary);
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  color: var(--contact-text-light);
+  line-height: 1.8;
+  margin-bottom: var(--contact-space-xl);
+}
+
+.contact-methods {
+  display: grid;
+  gap: var(--contact-space-lg);
+  margin-bottom: var(--contact-space-xxl);
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: var(--contact-space-md);
+}
+
+.contact-method-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(10, 36, 99, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contact-primary);
+}
+
+.contact-method-text {
+  flex: 1;
+}
+
+.contact-method-label {
+  font-weight: 600;
+  color: var(--contact-primary);
+  margin-bottom: 4px;
+}
+
+.contact-method-value {
+  color: var(--contact-text-light);
+}
+
+.contact-form {
+  background-color: var(--contact-background-white);
+  padding: var(--contact-space-xl);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: var(--contact-space-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--contact-space-sm);
+  color: var(--contact-primary);
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--contact-space-md);
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: var(--contact-background-light);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--contact-primary);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--contact-primary);
+  color: white;
+  border: none;
+  padding: var(--contact-space-md) var(--contact-space-xxl);
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: var(--contact-primary-light);
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--contact-space-md);
+  margin-top: var(--contact-space-xl);
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--contact-background-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contact-primary);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: var(--contact-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--contact-space-xl);
+  }
+
+  .contact-info {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .contact-method {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    padding: var(--contact-space-lg);
+  }
+}
+
+.alert {
+  padding: var(--contact-space-md);
+  margin-bottom: var(--contact-space-lg);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.alert-error {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+}
